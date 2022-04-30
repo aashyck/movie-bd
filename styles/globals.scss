@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,700;1,300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom base */
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-50;
+    font-family: "Jost", sans-serif;
+  }
+
+  header {
+    @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6;
+  }
+}
+
+/* Custom ClassNames */
+@layer components {
+  /* Header */
+  .headerLink {
+    @apply cursor-pointer text-sm font-light text-slate-50 transition duration-300 hover:text-slate-400;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply font-semibold uppercase no-underline;
+    border-width: var(--border-btn, 1px);
+    animation: button-pop var(--animation-btn, 0.25s) ease-out;
+    text-transform: var(--btn-text-case, uppercase);
+    &:active:hover,
+    &:active:focus {
+      animation: none;
+    }
+    &:active:hover,
+    &:active:focus {
+      transform: scale(var(--btn-focus-scale, 0.95));
+    }
+
+    /* default btn */
+    & {
+      @apply border-indigo-700 bg-indigo-900/50 text-slate-50 shadow-lg shadow-indigo-500/30 backdrop-blur-sm transition duration-200 ease-in-out;
+      &:hover,
+      &-active {
+        @apply border-indigo-900 bg-indigo-900/90;
+      }
+      &:focus-visible {
+        outline: 2px solid hsl(var(--nf));
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  @keyframes button-pop {
+    0% {
+      transform: scale(var(--btn-focus-scale, 0.95));
+    }
+    40% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
