@@ -33,7 +33,7 @@ const Row = ({ title, movies }: Props) => {
           {title}
         </h2>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row first-letter:to-black">
           <ChevronLeftIcon
             className=" h-6 w-6 cursor-pointer"
             onClick={() => handleClick("left")}
