@@ -64,4 +64,9 @@
       transform: scale(1);
     }
   }
+
+  // Input
+  .input {
+    @apply w-full rounded bg-slate-700/75 px-5 py-3.5 placeholder-slate-400 outline-none focus:bg-slate-800;
+  }
 }

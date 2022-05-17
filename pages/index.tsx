@@ -2,6 +2,7 @@ import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Row from "../components/Row";
+import useAuth from "../hooks/useAuth";
 import { Movie } from "../typings";
 import requests from "../utils/requests";
 
@@ -26,6 +27,10 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
+  const { loading } = useAuth();
+
+  if (loading) return null;
+
   return (
     <div className="relative h-screen bg-gradient-to-b from-blue-900/30 to-slate-800/50  ">
       <Head>
@@ -50,7 +55,6 @@ const Home = ({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-      {/* Modal */}
     </div>
   );
 };

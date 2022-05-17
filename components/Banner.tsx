@@ -1,4 +1,4 @@
-import { DownloadIcon, PlayIcon } from "@heroicons/react/solid";
+import { DotsCircleHorizontalIcon, PlayIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { baseUrl } from "../constants/movie";
@@ -39,8 +39,8 @@ const Banner = ({ netflixOriginals }: Props) => {
             <span>Play</span>
           </button>
           <button className="btn hover:bg--slate-300 flex items-center justify-center gap-x-2 rounded-md bg-slate-100/90 px-4 py-3 text-indigo-900 hover:text-indigo-100">
-            <DownloadIcon className="h-6 w-6" />
-            <span>Download</span>
+            <DotsCircleHorizontalIcon className="h-6 w-6" />
+            <span>More Info</span>
           </button>
         </div>
       </div>
