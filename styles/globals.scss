@@ -69,4 +69,25 @@
   .input {
     @apply w-full rounded bg-slate-700/75 px-5 py-3.5 placeholder-slate-400 outline-none focus:bg-slate-800;
   }
+
+  //Progress Bar
+  .progress {
+    @apply h-2 rounded-full;
+    &::-moz-progress-bar {
+      @apply bg-slate-900/30;
+    }
+    &-white::-moz-progress-bar {
+      @apply bg-white;
+    }
+    &-white:indeterminate::after {
+      @apply bg-white;
+    }
+    &::-webkit-progress-bar {
+      @apply rounded-full bg-slate-900 bg-opacity-75;
+    }
+    &::-webkit-progress-value {
+      @apply rounded-full bg-slate-100;
+    }
+  }
+  //gradient
 }

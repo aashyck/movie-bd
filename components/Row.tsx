@@ -27,34 +27,32 @@ const Row = ({ title, movies }: Props) => {
   };
 
   return (
-    <div className="h-40 space-y-0.5 md:space-y-2">
-      <h2 className="w-56 cursor-pointer font-semibold transition duration-200 md:text-2xl">
-        {title}
-      </h2>
-      <div className="group relative md:-ml-2">
-        <ChevronLeftIcon
-          className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 hover:scale-125 group-hover:opacity-100 ${
-            !isMoved && "hidden"
-          }`}
-          onClick={() => handleClick("left")}
-        />
+    <div className="space-y-0.5 md:space-y-2">
+      <div className="w--full flex flex-row justify-between">
+        <h2 className="w-56 cursor-pointer font-semibold transition duration-200 md:text-2xl">
+          {title}
+        </h2>
 
-        <div
-          ref={rowRef}
-          className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2 md:p-2"
-        >
-          {movies.map((movie) => (
-            <div>
-              <Thumbnails key={movie.id} movie={movie} />
-              <span>{movie?.title}</span>
-            </div>
-          ))}
+        <div className="flex flex-row">
+          <ChevronLeftIcon
+            className=" h-6 w-6 cursor-pointer"
+            onClick={() => handleClick("left")}
+          />
+          <ChevronRightIcon
+            className=" h-6 w-6 cursor-pointer"
+            onClick={() => handleClick("right")}
+          />
         </div>
-
-        <ChevronRightIcon
-          className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 hover:scale-125 group-hover:opacity-100"
-          onClick={() => handleClick("right")}
-        />
+      </div>
+      <div
+        ref={rowRef}
+        className="flex cursor-grab items-center space-x-0.5 overflow-x-scroll  scrollbar-hide md:space-x-4 md:p-2"
+      >
+        {movies.map((movie) => (
+          <>
+            <Thumbnails key={movie.id} movie={movie} />
+          </>
+        ))}
       </div>
     </div>
   );
